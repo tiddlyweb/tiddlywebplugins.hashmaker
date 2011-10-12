@@ -24,8 +24,9 @@ or fields of a tiddler which are to be hashed. The default is:
 
     ['text']
 """
-__version__ = '0.5'
+__version__ = '0.6'
 
+import logging
 
 from tiddlyweb.store import HOOKS
 from tiddlyweb.util import sha
@@ -53,9 +54,13 @@ def hash_tiddler(environ, tiddler, overwrite=False):
             except AttributeError:
                 data = tiddler.fields.get(attribute, '')
             try:
-                digest.update(data.encode('utf-8'))
-            except (UnicodeEncodeError, UnicodeDecodeError):
-                digest.update(data)
+                try:
+                    digest.update(data.encode('utf-8'))
+                except (UnicodeEncodeError, UnicodeDecodeError):
+                    digest.update(data)
+            except (AttributeError, TypeError), exc:
+                logging.warn('tiddler data invalid for hashing: %s:%s, %s:%s',
+                        tiddler.bag, tiddler.title, attribute, data)
         tiddler.fields[u'_hash'] = unicode(digest.hexdigest())
 
 
