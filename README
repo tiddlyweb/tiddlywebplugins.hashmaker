@@ -16,7 +16,3 @@ hashmaker.attributes to be a list of strings representing the attributes
 or fields of a tiddler which are to be hashed. The default is:
 
     ['text']
-
-Copyright 2010-2011, Chris Dent <cdent@peermore.com>
-
-Licensed under the same terms as TiddlyWeb: BSD License.

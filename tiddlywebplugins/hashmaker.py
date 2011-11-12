@@ -24,7 +24,7 @@ or fields of a tiddler which are to be hashed. The default is:
 
     ['text']
 """
-__version__ = '0.5'
+__version__ = '0.6'
 
 
 from tiddlyweb.store import HOOKS
