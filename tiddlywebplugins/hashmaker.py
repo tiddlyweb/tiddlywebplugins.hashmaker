@@ -24,7 +24,7 @@ or fields of a tiddler which are to be hashed. The default is:
 
     ['text']
 """
-__version__ = '0.6'
+__version__ = '0.7'
 
 import logging
 
@@ -59,8 +59,9 @@ def hash_tiddler(environ, tiddler, overwrite=False):
                 except (UnicodeEncodeError, UnicodeDecodeError):
                     digest.update(data)
             except (AttributeError, TypeError), exc:
-                logging.warn('tiddler data invalid for hashing: %s:%s, %s:%s',
-                        tiddler.bag, tiddler.title, attribute, data)
+                logging.warn('tiddler data invalid for hashing: %s:%s, '
+                        '%s:%s, %s', tiddler.bag, tiddler.title, attribute,
+                        data, exc)
         tiddler.fields[u'_hash'] = unicode(digest.hexdigest())
 
 
