@@ -2,7 +2,7 @@ AUTHOR = 'Chris Dent'
 AUTHOR_EMAIL = 'cdent@peermore.com'
 NAME = 'tiddlywebplugins.hashmaker'
 DESCRIPTION = 'Add a hash digest field to tiddlers'
-VERSION = '0.7'
+VERSION = '0.8'
 
 
 import os
@@ -22,7 +22,7 @@ setup(
     platforms = 'Posix; MacOS X; Windows',
     packages = find_packages(exclude=['test']),
     install_requires = ['setuptools',
-        'tiddlyweb>=1.2.0'],
+        'tiddlyweb>=1.4.2'],
     zip_safe = False,
     license = 'BSD'
     )
