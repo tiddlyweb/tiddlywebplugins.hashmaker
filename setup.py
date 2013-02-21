@@ -2,7 +2,7 @@ AUTHOR = 'Chris Dent'
 AUTHOR_EMAIL = 'cdent@peermore.com'
 NAME = 'tiddlywebplugins.hashmaker'
 DESCRIPTION = 'Add a hash digest field to tiddlers'
-VERSION = '0.8'
+VERSION = '0.9'
 
 
 import os

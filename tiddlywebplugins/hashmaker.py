@@ -24,7 +24,7 @@ or fields of a tiddler which are to be hashed. The default is:
 
     ['text']
 """
-__version__ = '0.8'
+__version__ = '0.9'
 
 import logging
 
@@ -48,7 +48,7 @@ def hash_tiddler(environ, tiddler, overwrite=False):
     attributes named in config['hashmaker.attributes'].
     """
     if overwrite or '_hash' not in tiddler.fields:
-        config = environ['tiddlyweb.config']
+        config = environ.get('tiddlyweb.config', {})
         attributes = config.get('hashmaker.attributes', ['text'])
         digest = sha()
         for attribute in attributes:
